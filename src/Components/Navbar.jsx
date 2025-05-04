@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { use, useState } from 'react';
 import { Link, NavLink } from 'react-router';
 import logo from '../assets/logojpg.jpg';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { RxCross1 } from 'react-icons/rx';
+import { AuthContext } from '../Context/AuthContext';
 const Navbar = () => {
-
+    const {user} = use(AuthContext);
     const [mobileMenu,setMobileMenu] = useState(false);
+
     const links = <>
         <li><NavLink>Home</NavLink></li>
         <li><NavLink>My Bill</NavLink></li>
@@ -31,10 +33,10 @@ const Navbar = () => {
                 <ul className='hidden md:flex space-x-6 '>
                     {links}
                 </ul>
-                <div className='space-x-6'>
+                {user ? <button>Sign Out</button> : <div className='space-x-6'>
                     <Link to={'/register'}>Register</Link>
                     <Link to={'/login'}>Login</Link>
-                </div>
+                </div> }
             </nav>
             {/* Mobile device */}
             {
