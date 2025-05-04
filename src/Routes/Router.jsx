@@ -1,6 +1,8 @@
 import { createBrowserRouter } from "react-router";
 import HomeLayout from "../Layout/HomeLayout";
 import Home from "../Pages/Home";
+import Register from "../Pages/Register";
+import ErrorPage from "../Pages/ErrorPage";
 
 const router = createBrowserRouter([
     {
@@ -10,12 +12,16 @@ const router = createBrowserRouter([
             {
                 path:'/',
                 element:<Home/>
+            },
+            {
+                path:'/register',
+                element:<Register/>
             }
         ]
     },
     {
         path:'*',
-        element:<h3>404</h3>
+        element:<ErrorPage/>
     }
 ])
 export default router;

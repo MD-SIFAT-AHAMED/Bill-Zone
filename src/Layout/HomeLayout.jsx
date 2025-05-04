@@ -5,11 +5,19 @@ import Footer from '../Components/Footer';
 
 const HomeLayout = () => {
     return (
-        <div>
+        <>
+        <header className='w-11/12 mx-auto'>
             <Navbar/>
+        </header>
+
+        <main className='w-11/12 mx-auto'>
             <Outlet/>
+        </main>
+
+        <footer>
             <Footer/>
-        </div>
+        </footer>
+        </>
     );
 };
 
