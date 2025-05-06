@@ -9,8 +9,8 @@ const Navbar = () => {
     const [mobileMenu,setMobileMenu] = useState(false);
 
     const links = <>
-        <li><NavLink>Home</NavLink></li>
-        <li><NavLink>My Bill</NavLink></li>
+        <li><NavLink to={'/'}>Home</NavLink></li>
+        <li><NavLink to={'/bills'}>My Bill</NavLink></li>
         <li><NavLink to={'/profile'}>My Profile</NavLink></li>
     </>
     const handlerSignOut=()=>{

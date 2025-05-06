@@ -1,0 +1,53 @@
+[
+  {
+    "id": 1,
+    "bill_type": "ELECTRICITY",
+    "icon": "https://i.ibb.co.com/Vn5ccjv/desco.png",
+    "organization": "DESCO",
+    "amount": 1890,
+    "due-date": "2025-05-15T10:00:00.000Z",
+    "pro": true,
+    "image": "https://seeklogo.com/images/D/dhaka-electric-supply-company-logo-258514.png"
+  },
+  {
+    "id": 2,
+    "bill_type": "GAS",
+    "icon": "https://i.ibb.co.com/k2LLGZQW/btcl.png",
+    "organization": "Titas Gas",
+    "amount": 1320,
+    "due-date": "2025-05-12T10:00:00.000Z",
+    "pro": false,
+    "image": "https://seeklogo.com/images/T/titash-gas-logo-333374.png"
+  },
+  {
+    "id": 3,
+    "bill_type": "INTERNET",
+    "icon": "https://i.ibb.co.com/cc5psntg/nesco.png",
+    "organization": "Link3",
+    "amount": 1150,
+    "due-date": "2025-05-20T10:00:00.000Z",
+    "pro": true,
+    "image": "https://seeklogo.com/images/L/link3-logo-84448.png"
+  },
+  {
+    "id": 4,
+    "bill_type": "WATER",
+    "icon": "https://i.ibb.co.com/4vr3p5r/wasa.png",
+    "organization": "WASA",
+    "amount": 780,
+    "due-date": "2025-05-18T10:00:00.000Z",
+    "pro": false,
+    "image": "https://seeklogo.com/images/D/dhaka-wasa-logo-512364.png"
+  },
+  {
+    "id": 5,
+    "bill_type": "CREDIT CARD BILL",
+    "icon": "https://i.ibb.co.com/23t5TzR9/pdb.png",
+    "organization": "Standard Chartered",
+    "amount": 4120,
+    "due-date": "2025-05-22T10:00:00.000Z",
+    "pro": true,
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Standard_Chartered_%282021%29.svg"
+  }
+
+]

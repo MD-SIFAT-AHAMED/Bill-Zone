@@ -7,6 +7,9 @@ import Login from "../Pages/Login";
 import ForgotPassword from "../Pages/ForgotPassword";
 import MyProfile from "../Pages/MyProfile";
 import PrivateRoute from "./PrivateRoute";
+import Bills from "../Pages/Bills";
+import BillDetails from "../Pages/BillDetails";
+import Loading from "../Pages/Loading";
 
 const router = createBrowserRouter([
     {
@@ -35,6 +38,17 @@ const router = createBrowserRouter([
                 <PrivateRoute>
                     <MyProfile/>
                 </PrivateRoute>
+            },
+            {
+                path:'/bills',
+                element:<Bills/>,
+                loader:()=> fetch('Bills.json')
+            },
+            {
+                path:'/details/:cardId',
+                hydrateFallbackElement:<Loading/>,
+                loader:()=> fetch('Bills.json'),
+                element:<BillDetails/>
             }
         ]
     },
