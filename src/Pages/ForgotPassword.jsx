@@ -1,9 +1,10 @@
-import React, { use, useState } from "react";
+import React, { use } from "react";
 import forgotImg from "../assets/Forgot.jpg";
 import { AuthContext } from "../Context/AuthContext";
+import toast from "react-hot-toast";
 const ForgotPassword = () => {
   const { userPasswordForgot } = use(AuthContext);
-  const [errorMessage, setErrorMessage] = useState("");
+
 
   const handlerForgotPass = (e) => {
     e.preventDefault();
@@ -11,10 +12,10 @@ const ForgotPassword = () => {
     console.log(email);
     userPasswordForgot(email)
       .then(() => {
-        alert("your email checked")
+        toast.success("Check your Email");
       })
       .catch((err) => {
-        setErrorMessage(err.code);
+        toast.error(err.code);
       });
 
     e.target.reset();
@@ -44,7 +45,6 @@ const ForgotPassword = () => {
               <button className="btn text-white hover:bg-white hover:text-black  bg-[#ff8904] mt-4">
                 Reset Password
               </button>
-              {errorMessage && <p className="text-center text-red-500">{errorMessage}</p>}
             </form>
           </div>
         </div>

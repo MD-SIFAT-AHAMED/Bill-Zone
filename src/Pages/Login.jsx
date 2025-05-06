@@ -1,13 +1,18 @@
 import React, { use, useState } from "react";
 import loginImg from "../assets/loginimg.jpg";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../Context/AuthContext";
+import toast from "react-hot-toast";
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
+
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const { loginUser, createUserGoogle } = use(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
+  console.log(location);
 
   const handlerLogin = (e) => {
     e.preventDefault();
@@ -15,9 +20,9 @@ const Login = () => {
     const password = e.target.password.value;
 
     loginUser(email, password)
-      .then((user) => {
-        console.log(user);
-        navigate("/");
+      .then(() => {
+        // console.log(user);
+        navigate(location?.state || "/");
       })
       .catch((err) => {
         setErrorMessage(err.code);
@@ -26,9 +31,10 @@ const Login = () => {
 
   const handlerGoogleSignIn = () => {
     createUserGoogle()
-      .then((user) => {
-        console.log(user);
-        navigate("/");
+      .then(() => {
+        toast.success("Login successfully");
+        // console.log(user);
+        navigate(location?.state || "/");
       })
       .catch((err) => {
         setErrorMessage(err.code);
@@ -47,7 +53,9 @@ const Login = () => {
             </h3>
             <form onSubmit={handlerLogin} className="fieldset ">
               {/* Email field */}
-              <label className="label">Email<span className='text-red-600'>*</span></label>
+              <label className="label">
+                Email<span className="text-red-600">*</span>
+              </label>
               <input
                 type="email"
                 name="email"
@@ -56,16 +64,23 @@ const Login = () => {
                 required
               />
               {/* Password fied */}
-              <label className="label">Password<span className='text-red-600'>*</span></label>
-              <input
-                type={showPassword ? "text" : "password"}
-                name="password"
-                className="input"
-                placeholder="Password"
-                required
-              />
+              <label className="label">
+                Password<span className="text-red-600">*</span>
+              </label>
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  className="input"
+                  placeholder="Password"
+                  required
+                />
+                <div onClick={()=>setShowPassword(prev => !prev)} className="absolute right-8 top-4">{showPassword ? <FaRegEye size={15} /> : <FaRegEyeSlash size={15} />}</div>
+              </div>
               <div>
-                <Link to={'/forgotPassword'} className="link link-hover">Forgot password?</Link>
+                <Link to={"/forgotPassword"} className="link link-hover">
+                  Forgot password?
+                </Link>
               </div>
               <button className="btn text-white hover:bg-white hover:text-black  bg-[#ff8904] mt-4">
                 Login

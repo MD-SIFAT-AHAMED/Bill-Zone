@@ -3,6 +3,7 @@ import registerImg from "../assets/register.jpg";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
+import toast from "react-hot-toast";
 const Register = () => {
   
   const [errorMessage, setErrorMessage] = useState('');
@@ -47,9 +48,10 @@ const Register = () => {
     // Sign Up with Email and Password
 
     createUser(email,password)
-    .then((user)=>{
+    .then(()=>{
+      toast.success("Sign in Successfuly");
       updateUserInformation(userData);
-      console.log(user)
+      // console.log(user)
       setSuccess('User Create Success');
       navigate('/');
     })
@@ -63,12 +65,12 @@ const Register = () => {
   // Sign up with Google
   const handlerGoogleSignIn =()=>{
     createUserGoogle()
-    .then((user)=>{
-      console.log(user);
+    .then(()=>{
+      toast.success("Sign in Successfuly");
       navigate('/');
     })
     .catch((err)=>{
-      setErrorMessage(err.code)
+      toast.error(err.code);
     })
   }
 

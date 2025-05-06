@@ -41,13 +41,17 @@ const router = createBrowserRouter([
             },
             {
                 path:'/bills',
-                element:<Bills/>,
-                loader:()=> fetch('Bills.json')
+                element:
+                <PrivateRoute>
+                    <Bills/>
+                </PrivateRoute>,
+                hydrateFallbackElement:<Loading/>,
+                loader:()=> fetch('../Bills.json')
             },
             {
                 path:'/details/:cardId',
                 hydrateFallbackElement:<Loading/>,
-                loader:()=> fetch('Bills.json'),
+                loader:()=> fetch('../Bills.json'),
                 element:<BillDetails/>
             }
         ]

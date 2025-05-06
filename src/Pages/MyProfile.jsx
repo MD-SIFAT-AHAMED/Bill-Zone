@@ -1,6 +1,7 @@
 import React, { use, useState } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import { BiEdit } from "react-icons/bi";
+import toast from "react-hot-toast";
 
 const MyProfile = () => {
   const { user ,setUser} = use(AuthContext);
@@ -24,15 +25,18 @@ const MyProfile = () => {
     };
     updateUserInformation(userData)
       .then(() => {
+        toast.success("Update Success");
         setUser((prev)=>({...prev,...userData}));
         setEditProfile((prev) => !prev);
       })
-      .cacth((err) => {});
+      .cacth((err) => {
+        toast.error(err.code);
+      });
 
     e.target.reset();
   };
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center">
+    <div className="min-h-md flex flex-col items-center justify-center">
       <div className="max-w-md mx-auto p-6 bg-white rounded-2xl shadow-lg space-y-6">
         <div className="space-y-2 text-center">
           <div className="avatar w-24 avatar-online ">
