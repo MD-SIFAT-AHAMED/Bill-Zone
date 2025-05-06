@@ -9,7 +9,7 @@ const ForgotPassword = () => {
   const handlerForgotPass = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
-    console.log(email);
+    // console.log(email);
     userPasswordForgot(email)
       .then(() => {
         toast.success("Check your Email");
