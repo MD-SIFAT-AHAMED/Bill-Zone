@@ -4,6 +4,9 @@ import Home from "../Pages/Home";
 import Register from "../Pages/Register";
 import ErrorPage from "../Pages/ErrorPage";
 import Login from "../Pages/Login";
+import ForgotPassword from "../Pages/ForgotPassword";
+import MyProfile from "../Pages/MyProfile";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -21,6 +24,17 @@ const router = createBrowserRouter([
             {
                 path:'/login',
                 element:<Login/>
+            },
+            {
+                path:'/forgotPassword',
+                element:<ForgotPassword/>
+            },
+            {
+                path:'/profile',
+                element:
+                <PrivateRoute>
+                    <MyProfile/>
+                </PrivateRoute>
             }
         ]
     },

@@ -5,14 +5,23 @@ import { AiOutlineMenu } from 'react-icons/ai';
 import { RxCross1 } from 'react-icons/rx';
 import { AuthContext } from '../Context/AuthContext';
 const Navbar = () => {
-    const {user} = use(AuthContext);
+    const {user,signOutUser} = use(AuthContext);
     const [mobileMenu,setMobileMenu] = useState(false);
 
     const links = <>
         <li><NavLink>Home</NavLink></li>
         <li><NavLink>My Bill</NavLink></li>
-        <li><NavLink>My Profile</NavLink></li>
+        <li><NavLink to={'/profile'}>My Profile</NavLink></li>
     </>
+    const handlerSignOut=()=>{
+        signOutUser()
+        .then(()=>{
+
+        })
+        .catch(()=>{
+
+        })
+    }
     return (
         <>
             <nav className='flex justify-between items-center my-3'>
@@ -33,7 +42,7 @@ const Navbar = () => {
                 <ul className='hidden md:flex space-x-6 '>
                     {links}
                 </ul>
-                {user ? <button>Sign Out</button> : <div className='space-x-6'>
+                {user ? <button onClick={handlerSignOut}>Sign Out</button> : <div className='space-x-6'>
                     <Link to={'/register'}>Register</Link>
                     <Link to={'/login'}>Login</Link>
                 </div> }
