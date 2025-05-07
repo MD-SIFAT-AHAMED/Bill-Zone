@@ -15,7 +15,7 @@ const MyProfile = () => {
     const photoUrl = e.target.photoUrl.value;
 
     if (name.trim() === "" || photoUrl.trim() === "") {
-      alert("Please fill in both Name and Email fields.");
+      toast.error("Please fill in both Name and Email fields.");
       return;
     }
 
@@ -39,7 +39,7 @@ const MyProfile = () => {
     <div className="min-h-md flex flex-col items-center justify-center">
       <div className="max-w-md mx-auto p-6 bg-white rounded-2xl shadow-lg space-y-6">
         <div className="space-y-2 text-center">
-          <div className="avatar w-24 avatar-online ">
+          <div className="avatar w-24 h-24 avatar-online ">
             <img
               src={photoURL}
               alt="Profile"

@@ -41,12 +41,12 @@ const Login = () => {
       });
   };
   return (
-    <div className="hero  min-h-screen">
+    <div className="hero min-h-md">
       <div className="hero-content flex-col lg:flex-row">
         <div className="text-center lg:text-left">
           <img className="w-[600px]" src={loginImg} alt="img" />
         </div>
-        <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+        <div className="card bg-base-100 w-full max-w-sm shrink-0 ">
           <div className="card-body">
             <h3 className="text-2xl md:text-4xl font-semibold text-center py-3">
               Login
@@ -75,7 +75,7 @@ const Login = () => {
                   placeholder="Password"
                   required
                 />
-                <div onClick={()=>setShowPassword(prev => !prev)} className="absolute right-8 top-4">{showPassword ? <FaRegEye size={15} /> : <FaRegEyeSlash size={15} />}</div>
+                <div onClick={()=>setShowPassword(prev => !prev)} className="absolute right-[35px] bottom-[13px]">{showPassword ? <FaRegEye size={15} /> : <FaRegEyeSlash size={15} />}</div>
               </div>
               <div>
                 <Link to={"/forgotPassword"} className="link link-hover">

@@ -37,7 +37,7 @@ const Banner = () => {
                 style={{backgroundImage:`url(${item.bannerPhoto})`}} 
                 className='min-h-[600px] bg-cover bg-no-repeat bg-top rounded-2xl opacity-90 text-black overflow-hidden' key={item.id}>
 
-                  <div className='absolute top-50 left-20 md:left-40 space-y-3'>
+                  <div className='absolute top-50 left-10 md:left-40 space-y-3'>
                     <h1 className='text-5xl md:text-7xl font-bold text-white text-shadow-lg text-shadow-gray-600 '>Pay Any Bill in <br /> Seconds</h1>
                     <p className='text-2xl font-semibold text-white text-shadow-lg text-shadow-gray-500'>Easily pay your unility bills with few clicks.</p>
                     <button className='btn bg-gray-300 border-none hover:bg-white'>Get Started</button>

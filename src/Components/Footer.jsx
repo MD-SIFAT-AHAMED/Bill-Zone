@@ -25,7 +25,7 @@ const Footer = () => {
         {/* Contact Info */}
         <div>
           <h3 className="font-semibold mb-2">Contact</h3>
-          <p>Email: support@trustbank.com</p>
+          <p>Email: support@BillZone.com</p>
           <p>Phone: +880 1234-567890</p>
           <p>Address: Dhaka, Bangladesh</p>
         </div>

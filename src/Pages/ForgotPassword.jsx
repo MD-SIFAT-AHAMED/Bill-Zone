@@ -21,12 +21,12 @@ const ForgotPassword = () => {
     e.target.reset();
   };
   return (
-    <div className="hero  min-h-screen">
+    <div className="hero min-h-md">
       <div className="hero-content flex-col lg:flex-row">
         <div className="text-center lg:text-left">
           <img className="w-[600px]" src={forgotImg} alt="img" />
         </div>
-        <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+        <div className="card bg-base-100 w-full max-w-sm shrink-0 ">
           <div className="card-body">
             <h3 className="text-2xl font-semibold text-center py-3">
               Fotgot Password

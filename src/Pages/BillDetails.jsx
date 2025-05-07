@@ -1,7 +1,7 @@
 import React, { use } from "react";
 import { BsListNested } from "react-icons/bs";
 import { Link, useLoaderData, useNavigate, useParams } from "react-router";
-import { setBills } from "../DataBase/DataBase";
+import { getBills, setBills } from "../DataBase/DataBase";
 import { BalanceContext } from "../Context/BalanceContext";
 import toast from "react-hot-toast";
 
@@ -13,15 +13,22 @@ const BillDetails = () => {
   const navigate = useNavigate();
 
   const handlerPayBill = (bill) => {
+    const payBill = getBills();
+    const isPayBill = payBill.find((existBill) => existBill.id === bill.id);
+    if (isPayBill) {
+      toast.error("Already Bill Pay Success");
+      return;
+    }
+
     setBills(bill);
-    navigate('/bills')
+    navigate("/bills");
     toast.success("Pay Bill Success");
     const newBalance = balance - bill.amount;
     setBalance(newBalance);
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen">
+    <div className="flex justify-center items-center min-h-md">
       <div className="max-w-3xl mx-auto p-4">
         <div className="card card-side bg-base-100 shadow-lg hover:border-gray-400 hover:border transition-transform transform duration-200 hover:scale-105">
           <figure className="p-4 relative">
